@@ -1,6 +1,3 @@
-Voici un exemple de `README.md` bien structuré pour votre projet `django_blog_learning`. Vous pouvez ajuster le contenu selon vos besoins.
-
-```markdown
 # django_blog_learning
 
 ## Description
