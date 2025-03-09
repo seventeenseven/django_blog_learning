@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn-warning">LOGIN</button>
+</form>
+
+{% for field in form %}
+    {% for error in field.errors %}
+    <div class="error">{{ error }}</div>
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Categorie {{ categorie.nom }}</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Articles de la categorie : {{ categorie.nom }} </h1>
+    {% for post in articles %}
+        <h2>{{ post.titre }} <i> Categorie :{{ post.categorie }}</i></h2>
+        <h5>Publié le {{ post.date_publication}}</h5> 
+        <p>{{ post.contenu }}</p>
+        <a href="{% url 'post_detail' 'article' post.id  %}"><button>Voir plus</button></a>
+        <br>
+    {% endfor %} 
+    
+{% endblock%}
