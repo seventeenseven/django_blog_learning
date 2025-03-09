@@ -19,11 +19,11 @@ Ce projet a été réalisé dans le but d'enseigner aux étudiants les concepts 
 
 Voici un aperçu de la page d'accueil de mon blog :
 
-![Homepage Screenshot](screenshot.png)  <!-- Remplacez 'screenshot.png' par le nom de votre fichier d'image -->
+![Homepage Screenshot](blog_homepage.png) 
 
 ## Compétences
 
-En tant qu'enseignant en Python et Django, ce projet met en valeur mes compétences en développement web et en conception d'applications. Il sert également de ressource pédagogique pour mes étudiants, leur permettant d'apprendre à travers un projet pratique et engageant.
+En tant qu'enseignant en Python et Django, ce projet sert de ressource pédagogique pour mes étudiants, leur permettant d'apprendre à travers un projet pratique et engageant.
 
 ## Installation
 
@@ -31,7 +31,7 @@ Pour installer et exécuter le projet localement, suivez les étapes ci-dessous 
 
 1. Clonez le repository :
    ```bash
-   git clone https://github.com/votre-utilisateur/django_blog_learning.git
+   git clone https://github.com/seventeenseven/django_blog_learning.git
    cd django_blog_learning
    ```
 
@@ -60,14 +60,5 @@ Pour installer et exécuter le projet localement, suivez les étapes ci-dessous 
 
 ## Contribution
 
-Les contributions sont les bienvenues ! N'hésitez pas à soumettre des demandes de tirage (pull requests) pour améliorer le projet.
+Les contributions sont les bienvenues ! N'hésitez pas à soumettre des pull requests pour améliorer le projet.
 
-## License
-
-Ce projet est sous la licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus d'informations.
-```
-
-### Notes :
-- Assurez-vous d'ajouter une image de capture d'écran dans le même répertoire que votre `README.md` ou de spécifier le chemin correct.
-- N'oubliez pas de remplacer `votre-utilisateur` par votre nom d'utilisateur GitHub dans l'URL de clonage.
-- Vous pouvez ajuster les sections selon vos préférences et ajouter d'autres informations si nécessaire.
