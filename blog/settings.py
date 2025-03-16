@@ -12,10 +12,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -26,7 +29,7 @@ SECRET_KEY = 'django-insecure-k__q8310*&uu391&mifej(#7vx80q!uim8i8y3kjl6&(vf=hu7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ["heroku.blog_bootcampxyz"]
 
 
 # Application definition
@@ -50,6 +53,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 ROOT_URLCONF = 'blog.urls'
 
@@ -76,13 +82,24 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env.DB_NAME,
+        'USER': env.DB_USER,
+        'PASSWORD': env.DB_PASSWORD,
+        'HOST': env.DB_HOST,
+        'PORT': env.DB_PORT,
+        }
 }
 
+CACHES = {
+'default': {
+'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+'LOCATION': '127.0.0.1:11211',
+}
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -119,8 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),  # Permet d'accéder aux fichiers statiques
+      # Permet d'accéder aux fichiers statiques
 ]
 
 MEDIA_URL = '/media/'
